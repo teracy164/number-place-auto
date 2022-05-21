@@ -1,0 +1,35 @@
+<!-- JS/CSSは外部ファイルに切り出し -->
+<link href="/css/styles.css" rel="stylesheet">
+<script type="text/javascript" src="/js/ctrl-input.js"></script>
+<script>
+  const clearInputs = function () {
+    console.log('clear')
+    const elements = document.getElementsByClassName('cell');
+    for (const el of elements) el.value = "";
+  }
+</script>
+<div>
+  <a href="/">リセット</a>
+</div>
+<form method="post" action="/resolve">
+  <div style="padding: 20px;">
+    <table>
+      <% for (var row=0; row < inputs.length; row++) { %>
+        <tr>
+          <% for (var col=0; col < inputs[row].length; col++) { %>
+            <td>
+              <input name="inputs[]" class="cell" type="number" value="<%= inputs[row][col] %>" min="1" max="9" />
+            </td>
+            <% } %>
+        </tr>
+        <% } %>
+    </table>
+  </div>
+  <div style="text-align: center">
+    <button type="submit">解答</button>
+    <button type="button" onclick="clearInputs()">クリア</button>
+    <p>
+      <%= result %>　<%= runtime %>
+    </p>
+  </div>
+</form>

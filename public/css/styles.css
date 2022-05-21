@@ -1,0 +1,51 @@
+table {
+    border-collapse: collapse;
+    margin: auto;
+    border: 4px solid black;
+}
+
+/* 3行目と6行目は3x3マス区切り用に下線を太くする */
+tr:nth-child(3),
+tr:nth-child(6) {
+    border-bottom: 4px solid black;
+}
+
+td {
+    border: 1.5px solid black;
+    padding: 0;
+}
+
+/* 3列目と6列目は3x3マス区切り用に右線を太くする */
+td:nth-child(3),
+td:nth-child(6) {
+    border-right: 4px solid black;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    border: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.cell:read-only {
+    background-color: #e9e9e9;
+}
+
+/* スピンボタンを非表示 */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+pre {
+    font: inherit;
+    white-space: prewrap;
+}
